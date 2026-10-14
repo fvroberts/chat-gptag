@@ -2,7 +2,23 @@
 
 An original browser arcade game for one person versus the computer, or two or three people sharing a keyboard. Chase when you're IT. Pass the tag by touching an opponent. Whoever is IT at the buzzer loses.
 
-## Run
+## Run without npm
+
+The repository includes a compiled, self-contained `tag-arena.html`. It already contains the JavaScript, styles and artwork; you do not need Node.js, npm or an assets folder to play this version.
+
+Open a terminal in the downloaded repository folder and run:
+
+```sh
+python3 -m http.server 8000
+```
+
+On Windows, use `py -m http.server 8000`. Open **`http://localhost:8000/tag-arena.html`** in your browser. Keep the terminal open while playing; stop the server with Ctrl+C.
+
+Use the explicit `/tag-arena.html` address. The root `index.html` is the development entry point and loads TypeScript source, which a plain Python server cannot compile. Serving that entry directly produces a blank page and a module/MIME error.
+
+To regenerate the standalone file after source changes, a developer can run `npm run build:standalone`. The resulting `tag-arena.html` can be distributed and played without npm. Bundled dependency license notices are embedded in the file.
+
+## Develop with npm
 
 Requires Node.js 20.19+ or 22.12+ (developed with Node 24) and npm.
 
